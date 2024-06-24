@@ -28,5 +28,15 @@ namespace NotaFiscal.Api.Controllers
 
             return Ok();
         }
+
+        [HttpGet("/buscarid/{id}")]
+        public IActionResult BuscarPorId(int id)
+        {
+            var nf = _context.NotasFiscais.Where(nf => nf.NotaFiscalId == id);
+            if (nf == null)
+                return NotFound();
+            
+            return Ok(nf);
+        }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "DB+g+qgleXSn77EXrS1a5AcVw0BIymRrh7FcngZ73sY=",
+  "Source": "NotaFiscal.Api",
+  "BasePath": "_content/NotaFiscal.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
