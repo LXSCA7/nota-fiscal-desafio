@@ -18,11 +18,11 @@ public class CnpjTests
     [Fact]
     public void RemoveDigitosCnpj_RecebeComDigitos_RetornaSemDigitos()
     {
-        string cnpj = "00.000.000/0000-00";
+        string cnpj = "33.014.556/1598-96";
 
         cnpj = Cnpj.RemoveDigitos(cnpj);
 
-        string cnpjSemDigitos = "00000000000000";
+        string cnpjSemDigitos = "33014556159896";
         int size = cnpjSemDigitos.Length;
 
         Assert.Equal(cnpjSemDigitos, cnpj);
@@ -31,7 +31,7 @@ public class CnpjTests
     [Fact]
     public void VerificaCnpj_RecebeCnpjValido_RetornaTrue()
     {
-        string cnpj = "44.159.188/0001-90";
+        string cnpj = "33.014.556/1598-96";
         cnpj = Cnpj.RemoveDigitos(cnpj);
 
         bool resultado = Cnpj.VerificaCnpj(cnpj);
@@ -49,4 +49,16 @@ public class CnpjTests
 
         Assert.False(resultado);
     }
+
+    [Fact]
+    public void VerificaEFormata_RecebeCnpjValido_RetornaTrueECnpjFormatado()
+    {
+        string cnpj = "33014556159896";
+        string cnpjEsperado = "33.014.556/1598-96"; // Ajuste de acordo com o formato esperado
+        bool resultado = Cnpj.VerificaEFormata(cnpj, out string cnpjFormatado);
+
+        Assert.Equal(cnpjEsperado, cnpjFormatado);
+        Assert.True(resultado);
+    }
+    
 }
