@@ -63,5 +63,17 @@ namespace NotaFiscal.Api.Models
 
             return digitos[12] == dv1 && digitos[13] == dv2;
         }
+
+        public static bool VerificaEFormata(string cnpj, out string cnpjFormatado)
+        {
+            cnpjFormatado = "";
+            cnpj = RemoveDigitos(cnpj);
+
+            if (cnpj.Length != 14 || !VerificaCnpj(cnpj))
+                return false;
+
+            cnpjFormatado = FormataCnpj(cnpj);
+            return true;
+        }
     }
 }
