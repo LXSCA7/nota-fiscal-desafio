@@ -36,8 +36,7 @@ namespace NotaFiscal.Api.Models
             return newCnpj.ToString();
         }
         public static bool VerificaCnpj(string cnpj)
-        {
-            
+        {     
             int[] digitos = new int[cnpj.Length];
 
             for (int i = 0; i < cnpj.Length; i++)

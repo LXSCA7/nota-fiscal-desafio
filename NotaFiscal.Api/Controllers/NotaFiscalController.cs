@@ -24,6 +24,25 @@ namespace NotaFiscal.Api.Controllers
         [HttpPost]
         public IActionResult Create(NotaBase nf)
         {
+            if (Cnpj.RemoveDigitos(nf.CnpjDestinatario).Length != 14)
+                return BadRequest("Cnpj do destinatário inválido.");
+
+            if (Cnpj.RemoveDigitos(nf.CnpjEmissor).Length != 14)
+                return BadRequest("Cnpj do destinatário inválido.");
+
+
+            if (!nf.CnpjDestinatario.Any(c => c == '.' || c == '/' || c == '-'))
+                nf.CnpjDestinatario = Cnpj.FormataCnpj(nf.CnpjDestinatario);
+            
+            if (!Cnpj.VerificaCnpj(Cnpj.RemoveDigitos(nf.CnpjDestinatario)))
+                return BadRequest("Cnpj do destinatário inválido.");
+
+            if (!nf.CnpjEmissor.Any(c => c == '.' || c == '/' || c == '-'))
+                nf.CnpjEmissor = Cnpj.FormataCnpj(nf.CnpjEmissor);
+            
+            if (!Cnpj.VerificaCnpj(Cnpj.RemoveDigitos(nf.CnpjEmissor)))
+                return BadRequest("Cnpj do Emissor inválido.");
+
             Nota notaFiscal = new() {
                 NumeroNf = nf.Numero,
                 ValorTotal = nf.Valor,
