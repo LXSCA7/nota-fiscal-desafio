@@ -8,7 +8,7 @@ namespace NotaFiscal.Api.Models
 {
     public class Cnpj
     {
-        public string RemoveDigitos(string cnpj)
+        public static string RemoveDigitos(string cnpj)
         {
             StringBuilder newCnpj = new();
             foreach (char c in cnpj)
@@ -19,7 +19,7 @@ namespace NotaFiscal.Api.Models
             return newCnpj.ToString();
         }
 
-        public string FormataCnpj(string cnpj)
+        public static string FormataCnpj(string cnpj)
         {
             StringBuilder newCnpj = new();
             for (int i = 0; i < 14; i++)
@@ -35,10 +35,8 @@ namespace NotaFiscal.Api.Models
             }
             return newCnpj.ToString();
         }
-        public bool VerificaCnpj(string cnpj)
+        public static bool VerificaCnpj(string cnpj)
         {
-            if (string.IsNullOrEmpty(cnpj) || cnpj.Length != 14)
-                return false;
             
             int[] digitos = new int[cnpj.Length];
 
