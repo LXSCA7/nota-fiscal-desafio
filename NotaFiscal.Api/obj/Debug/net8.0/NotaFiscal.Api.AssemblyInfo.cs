@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NotaFiscal.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c3841c4d1696ff5b53d73714142ddfe4a63bf7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d87702bc122102d81be5ddd0e710f9da9ae10261")]
 [assembly: System.Reflection.AssemblyProductAttribute("NotaFiscal.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NotaFiscal.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

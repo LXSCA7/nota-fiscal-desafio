@@ -24,31 +24,21 @@ namespace NotaFiscal.Api.Controllers
         [HttpPost]
         public IActionResult Create(NotaBase nf)
         {
-            if (Cnpj.RemoveDigitos(nf.CnpjDestinatario).Length != 14)
+            if(!Cnpj.VerificaEFormata(nf.CnpjDestinatario, out string cnpjDestinatarioFormatado))
                 return BadRequest("Cnpj do destinatário inválido.");
+                
+            if(!Cnpj.VerificaEFormata(nf.CnpjEmissor, out string cnpjEmissorFormatado))
+                return BadRequest("Cnpj do emissor inválido.");
 
-            if (Cnpj.RemoveDigitos(nf.CnpjEmissor).Length != 14)
-                return BadRequest("Cnpj do destinatário inválido.");
-
-
-            if (!nf.CnpjDestinatario.Any(c => c == '.' || c == '/' || c == '-'))
-                nf.CnpjDestinatario = Cnpj.FormataCnpj(nf.CnpjDestinatario);
-            
-            if (!Cnpj.VerificaCnpj(Cnpj.RemoveDigitos(nf.CnpjDestinatario)))
-                return BadRequest("Cnpj do destinatário inválido.");
-
-            if (!nf.CnpjEmissor.Any(c => c == '.' || c == '/' || c == '-'))
-                nf.CnpjEmissor = Cnpj.FormataCnpj(nf.CnpjEmissor);
-            
-            if (!Cnpj.VerificaCnpj(Cnpj.RemoveDigitos(nf.CnpjEmissor)))
-                return BadRequest("Cnpj do Emissor inválido.");
+            if (cnpjDestinatarioFormatado == cnpjEmissorFormatado)
+                return BadRequest("Cpnj do emissor e destinatário não podem ser iguais.");
 
             Nota notaFiscal = new() {
                 NumeroNf = nf.Numero,
                 ValorTotal = nf.Valor,
                 DataNf = DateTime.Now,
-                CnpjEmissorNf = nf.CnpjEmissor,
-                CnpjDestinatarioNf = nf.CnpjDestinatario
+                CnpjEmissorNf = cnpjEmissorFormatado,
+                CnpjDestinatarioNf = cnpjDestinatarioFormatado
             };
 
             _context.Add(notaFiscal);
