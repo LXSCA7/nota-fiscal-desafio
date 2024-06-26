@@ -33,10 +33,16 @@ namespace NotaFiscal.Api.Controllers
             if (cnpjDestinatarioFormatado == cnpjEmissorFormatado)
                 return BadRequest("Cpnj do emissor e destinatário não podem ser iguais.");
 
+            if (nf.Data > DateTime.UtcNow)
+                return BadRequest($"Data da nota fiscal não pode ser depois de {DateTime.Now}.");
+
+            if (nf.Data == DateTime.MinValue)
+                return BadRequest("Data da nota fiscal inválida.");
+
             Nota notaFiscal = new() {
                 NumeroNf = nf.Numero,
                 ValorTotal = nf.Valor,
-                DataNf = DateTime.Now,
+                DataNf = nf.Data,
                 CnpjEmissorNf = cnpjEmissorFormatado,
                 CnpjDestinatarioNf = cnpjDestinatarioFormatado
             };
