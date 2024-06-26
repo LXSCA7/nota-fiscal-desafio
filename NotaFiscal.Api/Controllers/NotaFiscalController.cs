@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -67,6 +68,24 @@ namespace NotaFiscal.Api.Controllers
         public IActionResult Listar()
         {
             List<Nota> notas = _context.NotasFiscais.ToList();
+
+            return Ok(notas);
+        }
+
+        [HttpGet("listarPorDestinatario")]
+        public IActionResult ListarPorDestinatario(string cnpj)
+        {
+            if (cnpj.Any(c => !char.IsNumber(c)))
+            {
+                cnpj = Cnpj.RemoveDigitos(cnpj);
+                cnpj = Cnpj.FormataCnpj(cnpj);
+            }
+
+            if (cnpj.All(c => char.IsNumber(c)))
+                cnpj = Cnpj.FormataCnpj(cnpj);
+
+            
+            List<Nota> notas = _context.NotasFiscais.Where(nf => nf.CnpjDestinatarioNf == cnpj).ToList();
 
             return Ok(notas);
         }
