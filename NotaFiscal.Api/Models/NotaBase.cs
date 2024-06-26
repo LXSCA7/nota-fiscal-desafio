@@ -9,6 +9,7 @@ namespace NotaFiscal.Api.Models
     {
         public string Numero { get; set; }
         public decimal Valor { get; set; }
+        public DateTime Data { get; set; }
         public string CnpjEmissor { get; set; }
         public string CnpjDestinatario { get; set; }
     }
