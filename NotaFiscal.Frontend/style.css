@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+body {
+    font-family: sans-serif;
+    background-color: white;
+}
+
+form {
+    padding: 10px;
+}
+
+.btn {
+    background-color: #767676;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .1s;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn:active {
+    opacity: .5;
+
+}
+
+/* forms */
+
+input {
+    width: 95%;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px black solid;
+}
+
+.lblBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.btnSubmit {
+    width: 30%;
+    border: none;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    background-color: rgb(1, 227, 1);
+    font-weight: bold;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.btnSubmit:hover {
+    opacity: .6;
+}
+
+.btnSubmit:active {
+    opacity: .3;
+}

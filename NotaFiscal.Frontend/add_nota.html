@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title> Adicionar nota fiscal </title>
+</head>
+<body>
+    <h1 style="text-align: center;"> CADASTRAR NOTA FISCAL </h1>
+    <form action="javascript:void(0);" method="POST" onsubmit="addNota()">
+        <label for="numero"> <input type="number" name="numero" id="numero" placeholder="Número da nota fiscal" required> </label>
+        <label for="valor"> <input type="number" name="valor" id="valor" placeholder="Valor da nota" required> </label>
+        <label for="data"> <input type="datetime-local" name="data" id="data" placeholder="Data de emissão" required> </label>
+        <label for="cnpjEmissor"> <input type="text" name="cnpjEmissor" id="cnpjEmissor" placeholder="Cnpj do Emissor" required> </label>
+        <label for="cnpjDestinatario"> <input type="text" name="cnpjDestinatario" id="cnpjDestinatario" placeholder="Cnpj do Destinatário" required> </label>
+        <label for="enviar" class="lblBtn"> <input type="submit" name="enviar" id="enviar" value="Cadastrar nota fiscal" class="btnSubmit"> </label>
+    </form>
+</body>
+</html>
