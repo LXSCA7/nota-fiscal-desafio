@@ -53,7 +53,7 @@ namespace NotaFiscal.Api.Controllers
             return Ok(BuscarPorId(notaFiscal.NotaFiscalId));
         }
 
-        [HttpGet("/buscarid/{id}")]
+        [HttpGet("buscarid/{id}")]
         public IActionResult BuscarPorId(int id)
         {
             var nf = _context.NotasFiscais.Find(id);
@@ -61,6 +61,14 @@ namespace NotaFiscal.Api.Controllers
                 return NotFound();
             
             return Ok(nf);
+        }
+
+        [HttpGet("listarNotas")]
+        public IActionResult Listar()
+        {
+            List<Nota> notas = _context.NotasFiscais.ToList();
+
+            return Ok(notas);
         }
 
         [HttpPut("editar/{id}")]
