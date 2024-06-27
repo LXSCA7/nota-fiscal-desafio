@@ -61,3 +61,8 @@ input {
 .btnSubmit:active {
     opacity: .3;
 }
+
+/* resultado nota fiscal */
+.some {
+    display: none;
+}
