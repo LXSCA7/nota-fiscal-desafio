@@ -69,9 +69,17 @@ function addNota() {
         },
         body: JSON.stringify(nota)
     })
-        .then(response => response.json())
-        .then(() => {
-            listNotas();
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => {
+                    throw new Error(JSON.stringify(err));
+                });
+            } else {
+                listNotas();
+                document.getElementById("cadastrada").innerHTML = "Nota cadastrada com sucesso.";
+            }
         })
-        .catch(error => console.error("Não foi possível adicionar a nota.", error))
+        .catch(error => {
+            document.getElementById("cadastrada").innerHTML = "Erro ao cadastrar a nota fiscal: <br>" + error;
+        })
 }
