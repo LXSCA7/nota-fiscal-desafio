@@ -89,13 +89,13 @@ function _showNotes(notas) {
     document.getElementById("preencher").classList.add("some");
     let quadro = document.getElementById("notas_div");
     notas.forEach(nota => {
-        quadro.innerHTML += `<div class="id_bg">`+
-            `<p> <span style="font-weight: bold;"> Id da nota: </span> ${nota.notaFiscalId} </p>` + "</div>" +
+        quadro.innerHTML += 
+            `<div class="nota_fiscal"> <p class="id_bg"> <span style="font-weight: bold;"> Id da nota: </span> ${nota.notaFiscalId} </p>` +
             `<p> <span style="font-weight: bold;"> Número: </span> ${nota.numeroNf} </p>` + 
-            `<p> <span style="font-weight: bold;"> Valor: </span> ${nota.valorTotal} </p>` +
+            `<p> <span style="font-weight: bold;"> Valor: </span> R$ ${nota.valorTotal} </p>` +
             `<p> <span style="font-weight: bold;"> Data de emissão: </span> ${nota.dataNf} </p>` +
             `<p> <span style="font-weight: bold;"> CNPJ Emissor: </span> ${nota.cnpjEmissorNf} </p>` +
-            `<p> <span style="font-weight: bold;"> CNPJ Destinatário: </span> ${nota.cnpjDestinatarioNf} </p>`
+            `<p> <span style="font-weight: bold;"> CNPJ Destinatário: </span> ${nota.cnpjDestinatarioNf} </p> </div>`
     });
 }
 
