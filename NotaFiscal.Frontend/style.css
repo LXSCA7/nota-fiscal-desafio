@@ -79,9 +79,16 @@ input {
 }
 
 .id_bg {
-    text-align: center;
     padding: 5px;
     background-color: rgb(154, 154, 154);
     height: 20px;
-    /* width: 100%; */
+}
+
+.nota_fiscal {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 80%;
+    margin: 15px auto;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
 }
