@@ -1,5 +1,5 @@
 const url = "http://localhost:5139/api/NotaFiscal";
-let notas = [];
+// let notas = [];
 
 function _displayItems(data) {
     if (!data) {
@@ -83,4 +83,33 @@ function addNota() {
         .catch(error => {
             document.getElementById("cadastrada").innerHTML = "Erro ao cadastrar a nota fiscal: <br>" + error;
         })
+}
+
+function _showNotes(notas) {
+    document.getElementById("preencher").classList.add("some");
+    let quadro = document.getElementById("notas_div");
+    notas.forEach(nota => {
+        quadro.innerHTML += `<div class="id_bg">`+
+            `<p> <span style="font-weight: bold;"> Id da nota: </span> ${nota.notaFiscalId} </p>` + "</div>" +
+            `<p> <span style="font-weight: bold;"> Número: </span> ${nota.numeroNf} </p>` + 
+            `<p> <span style="font-weight: bold;"> Valor: </span> ${nota.valorTotal} </p>` +
+            `<p> <span style="font-weight: bold;"> Data de emissão: </span> ${nota.dataNf} </p>` +
+            `<p> <span style="font-weight: bold;"> CNPJ Emissor: </span> ${nota.cnpjEmissorNf} </p>` +
+            `<p> <span style="font-weight: bold;"> CNPJ Destinatário: </span> ${nota.cnpjDestinatarioNf} </p>`
+    });
+}
+
+function listAll() {
+    let notas = []
+    let fetchUrl = `${url}/listarNotas`
+    fetch(fetchUrl)
+        .then(response=> {
+            if (!response.ok) {
+                _showNotes(null)
+                throw new Error("Erro ao checar todas as notas.");
+            }
+            return response.json();
+        })
+        .then(data => _showNotes(data))
+        .catch(error => console.error("erro.", error));
 }

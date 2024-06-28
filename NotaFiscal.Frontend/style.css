@@ -16,6 +16,7 @@ form {
     text-decoration: none;
     text-transform: uppercase;
     transition: .1s;
+    margin: 10px;
 }
 
 .btn:hover {
@@ -65,4 +66,22 @@ input {
 /* resultado nota fiscal */
 .some {
     display: none;
+}
+
+/* listagem de todas as notas */
+
+.lista_de_notas {
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 60%;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.id_bg {
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(154, 154, 154);
+    height: 20px;
+    /* width: 100%; */
 }

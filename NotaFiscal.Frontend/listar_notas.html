@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title> Buscar nota fiscal </title>
+</head>
+<body>
+    <h1 style="text-align: center;"> LISTAR TODAS AS NOTAS </h1>
+    <form action="javascript:void(0);" method="GET" onsubmit="listAll()">
+        <label for="enviar" class="lblBtn"> <input type="submit" name="enviar" id="enviar" value="BUSCAR" class="btnSubmit"> </label>
+    </form>
+    <br>
+    <!-- <p style="text-align: center; color: green" id="encontrada" class="some"> NOTA FISCAL ENCONTRADA </p>
+    <p style="text-align: center; color: red" id="nao_encontrada" class="some"> NOTA FISCAL NÃO ENCONTRADA </p>
+    <label for="numero"> Número: <input type="number" name="numero" id="numero" placeholder="Número da nota fiscal" readonly> </label>
+    <label for="valor"> Valor: <input type="number" name="valor" id="valor" placeholder="Valor da nota" readonly> </label>
+    <label for="data"> Data: <input type="datetime-local" name="data" id="data" placeholder="Data de emissão" readonly> </label>
+    <label for="cnpjEmissor"> CNPJ Emissor <input type="text" name="cnpjEmissor" id="cnpjEmissor" placeholder="Cnpj do Emissor" readonly> </label>
+    <label for="cnpjDestinatario"> CNPJ Destinatário <input type="text" name="cnpjDestinatario" id="cnpjDestinatario" placeholder="Cnpj do Destinatário" readonly> </label> -->
+
+    <div class="lista_de_notas" id="notas_div"> 
+        <span id="preencher"> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> </span>
+    </div>
+
+</body>
+</html>
