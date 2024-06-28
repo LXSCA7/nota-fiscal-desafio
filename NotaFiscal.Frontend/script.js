@@ -8,7 +8,7 @@ function _displayItems(data) {
         document.getElementById("data").value = "";
         document.getElementById("cnpjEmissor").value = "";
         document.getElementById("cnpjDestinatario").value = "";
-        return;   
+        return;
     }
 
     document.getElementById("numero").value = data.numeroNf;
@@ -47,6 +47,7 @@ function buscarId() {
 }
 
 function addNota() {
+    // pega os valores
     const numero = document.getElementById("numero").value;
     const valor = document.getElementById("valor").value;
     const data = document.getElementById("data").value;
