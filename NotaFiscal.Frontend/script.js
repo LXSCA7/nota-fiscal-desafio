@@ -100,8 +100,7 @@ function _showNotes(notas) {
 }
 
 function listAll() {
-    let notas = []
-    let fetchUrl = `${url}/listarNotas`
+    let fetchUrl = `${url}/listarNotas`;
     fetch(fetchUrl)
         .then(response=> {
             if (!response.ok) {
@@ -112,4 +111,19 @@ function listAll() {
         })
         .then(data => _showNotes(data))
         .catch(error => console.error("erro.", error));
+}
+
+function listarDestinatario() {
+    let cnpj = document.getElementById("cnpj_do_destinatario").value;
+    cnpj = cnpj.replace(/[.\-/]/g, '');
+    let fetchUrl = `${url}/listarPorDestinatario/${cnpj}`;
+    fetch(fetchUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("CNPJ do destinatário não encontrado.");
+            }
+            return response.json();
+        })
+        .then(data => _showNotes(data))
+        .catch(error => console.error("erro: ", error));
 }
