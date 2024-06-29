@@ -72,7 +72,7 @@ namespace NotaFiscal.Api.Controllers
             return Ok(notas);
         }
 
-        [HttpGet("listarPorDestinatario")]
+        [HttpGet("listarPorDestinatario/{cnpj}")]
         public IActionResult ListarPorDestinatario(string cnpj)
         {
             if (cnpj.Any(c => !char.IsNumber(c)))
