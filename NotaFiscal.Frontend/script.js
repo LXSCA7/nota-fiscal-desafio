@@ -127,3 +127,18 @@ function listarDestinatario() {
         .then(data => _showNotes(data))
         .catch(error => console.error("erro: ", error));
 }
+
+function listarEmissor() {
+    let cnpj = document.getElementById("cnpj_do_emissor").value;
+    cnpj = cnpj.replace(/[.\-/]/g, '');
+    let fetchUrl = `${url}/listarPorEmissor/${cnpj}`;
+    fetch(fetchUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("CNPJ do emissor não encontrado.");
+            }
+            return response.json();
+        })
+        .then(data => _showNotes(data))
+        .catch(error => console.error("erro: ", error));
+}
