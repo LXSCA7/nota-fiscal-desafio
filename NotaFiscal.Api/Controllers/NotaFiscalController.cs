@@ -90,6 +90,23 @@ namespace NotaFiscal.Api.Controllers
             return Ok(notas);
         }
 
+        [HttpGet("listarPorEmissor/{cnpj}")]
+        public IActionResult ListarPorEmissor(string cnpj)
+        {
+            if (cnpj.Any(c => !char.IsNumber(c)))
+            {
+                cnpj = Cnpj.RemoveDigitos(cnpj);
+                cnpj = Cnpj.FormataCnpj(cnpj);
+            }
+            
+            if (cnpj.All(c => char.IsNumber(c)))
+                cnpj = Cnpj.FormataCnpj(cnpj);
+
+            List<Nota> notas = _context.NotasFiscais.Where(c => c.CnpjEmissorNf == cnpj).ToList();
+            
+            return Ok(notas);
+        }
+
         [HttpPut("editar/{id}")]
         public IActionResult Editar(int id, [FromBody] NotaBaseEdit nota)
         {
