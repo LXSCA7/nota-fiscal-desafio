@@ -2,11 +2,34 @@
 
 body {
     font-family: sans-serif;
-    background-color: white;
+    background-color: #f0f0f0;
 }
 
 form {
     padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+ .div-notas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dfdfdf;
+    width: 400px; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.div-notas p {
+    text-align: center;
+    margin: 10px 0;
 }
 
 .btn {
@@ -16,7 +39,8 @@ form {
     text-decoration: none;
     text-transform: uppercase;
     transition: .1s;
-    margin: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
 }
 
 .btn:hover {
@@ -26,6 +50,28 @@ form {
 .btn:active {
     opacity: .5;
 
+}
+
+/* back button */
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 50px;
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+    background-color: #ddd;
+}
+
+.back-button::before {
+    content: '←';
+    font-size: 16px;
 }
 
 /* forms */
@@ -49,18 +95,40 @@ input {
     padding: 10px 20px;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
-    background-color: rgb(1, 227, 1);
+    background-color: #28a745;
     font-weight: bold;
     transition: .2s;
     cursor: pointer;
 }
 
+.all-notes .btnSubmit {
+    border-radius: 8px;
+    width: 80%;
+    text-align: center;
+}
+
 .btnSubmit:hover {
-    opacity: .6;
+    background-color: #218838;
 }
 
 .btnSubmit:active {
     opacity: .3;
+}
+
+.search-form {
+    
+    display: flexbox;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.all-notes{
+    background-color: white;
+    width: 400px;
+    margin: 10px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* resultado nota fiscal */
