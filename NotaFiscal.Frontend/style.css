@@ -122,7 +122,7 @@ input {
     margin: 10px auto;
 }
 
-.all-notes{
+.all-notes {
     background-color: white;
     width: 400px;
     margin: 10px auto;
@@ -139,6 +139,7 @@ input {
 /* listagem de todas as notas */
 
 .lista_de_notas {
+    background-color: white;
     border-radius: 10px;
     border: 2px solid black;
     width: 60%;

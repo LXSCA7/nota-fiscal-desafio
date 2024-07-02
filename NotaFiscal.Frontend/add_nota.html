@@ -10,7 +10,7 @@
 <body>
     <button class="back-button" onclick="history.back()"></button>
     <h1 style="text-align: center;"> CADASTRAR NOTA FISCAL </h1>
-    <form action="javascript:void(0);" method="POST" onsubmit="addNota()">
+    <form action="javascript:void(0);" method="POST" onsubmit="addNota()" class="all-notes">
         <label for="numero"> <input type="number" name="numero" id="numero" placeholder="Número da nota fiscal" required> </label>
         <label for="valor"> <input type="number" name="valor" id="valor" placeholder="Valor da nota" required> </label>
         <label for="data"> <input type="datetime-local" name="data" id="data" placeholder="Data de emissão" required> </label>
